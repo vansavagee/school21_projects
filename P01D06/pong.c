@@ -88,7 +88,7 @@ int main() {
 
 void draw(int racket1_kkor1, int racket1_kkor2, int racket1_kkor3, int racket2_kkor1, int racket2_kkor2,
           int racket2_kkor3, int ball_x, int ball_y, int res_left, int res_right) {
-    char space = ' ';  //переменая для пробела
+    char space = ' ';  //  переменая для пробела
     char top = '#';    // переменная для верха/низа
     char left = '#';   // переменная право/лево и ракеток
     char rk = '|';
@@ -104,7 +104,7 @@ void draw(int racket1_kkor1, int racket1_kkor2, int racket1_kkor3, int racket2_k
         }
         // прорисовка тела
 
-        if ((i > 0 && i < MAX_Y)) {  //прорисовка сторон
+        if ((i > 0 && i < MAX_Y)) {  //  прорисовка сторон
             printf("%c", left);
             for (int j = 1; j < MAX_X; j++) {
                 if ((i == racket1_kkor1 || i == racket1_kkor2 || i == racket1_kkor3) && j == 7) {
@@ -167,14 +167,14 @@ int perem() {
 };
 
 int ball_coord(int* way, int* x, int* y, int Ly, int Ry) {
-    //если кто-то из игроков забил гол
+    //  если кто-то из игроков забил гол
     if (*x == MAX_X - 5) {
         return 0;
     }
     if (*x == X_MIN + 5) {
         return -1;
     }
-    //если мяч ударяется о рокетку (1)
+    //  если мяч ударяется о рокетку (1)
     if ((*way == 2 && *x == MAX_S1 - 1 && *y == Ry + 2)) {
         *way = 4;
         return 1;
@@ -191,7 +191,7 @@ int ball_coord(int* way, int* x, int* y, int Ly, int Ry) {
         *way = 2;
         return 1;
     }
-    //если мяч ударяется о рокетку (2)
+    //  если мяч ударяется о рокетку (2)
     if ((*way == 2) && (*x == MAX_S1 - 1) && (*y == Ry || *y == Ry - 1 || *y == Ry + 1)) {
         *way = 1;
         *y = *y - 1;
@@ -216,7 +216,7 @@ int ball_coord(int* way, int* x, int* y, int Ly, int Ry) {
         *x = *x + 1;
         return 1;
     }
-    //если мяч ударяется о стенки
+    //  если мяч ударяется о стенки
     if (*y == Y_MIN + 1 || *y == MAX_Y - 1) {
         if (*way == 1) {
             *x = *x - 1;
@@ -243,7 +243,7 @@ int ball_coord(int* way, int* x, int* y, int Ly, int Ry) {
             return 1;
         }
     }
-    //остальные случаи
+    //  остальные случаи
     if (*way == 1) {
         *x = *x - 1;
         *y = *y - 1;
